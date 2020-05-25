@@ -297,7 +297,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(fieldObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(fieldObject.GetType().ToString());
+            html += GetPageHeader(fieldObject.GetType().Name);
             html += GetHtmlForObject(fieldObject, HtmlOutputType.Table);
             html += includeHtmlHeaders ? GetHtmlFooter() : "";
             return html;
@@ -385,7 +385,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
 
         private static PropertyInfo[] GetPropertyInfo(Type type)
         {
-            return type.GetProperties(BindingFlags.Public);
+            return type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
         }
 
         private static string GetHtmlHeader()

@@ -28,7 +28,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.ObjectsTests
         [TestCategory("FieldObject")]
         public void FieldObject_FieldNumber_CanSetAndGet()
         {
-            var expected = "12345.0";
+            var expected = "12345.01";
             newFieldObject.FieldNumber = expected;
             var actual = newFieldObject.FieldNumber;
             Assert.AreEqual(expected, actual);
@@ -376,7 +376,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.ObjectsTests
         [TestCategory("FieldObject")]
         public void FieldObject_ToHtmlString_WithoutHtmlHeaders_NotNull()
         {
-            var actual = newFieldObject.ToHtmlString(false);
+            var actual = new FieldObject("123").ToHtmlString(false);
             Assert.IsNotNull(actual);
         }
 
@@ -384,7 +384,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.ObjectsTests
         [TestCategory("FieldObject")]
         public void FieldObject_ToHtmlString_WithHtmlHeaders_NotNull()
         {
-            var actual = newFieldObject.ToHtmlString(true);
+            var actual = new FieldObject("123").ToHtmlString(true);
             Assert.IsNotNull(actual);
         }
 
