@@ -30,6 +30,9 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v5.Shared
             // Select Command
             switch (scriptName)
             {
+                case "DisableAllFields":
+                    logger.Debug(nameof(DisableAllFieldsCommand) + " selected.");
+                    return new DisableAllFieldsCommand(optionObject);
                 case "GetErrorCode0":
                     logger.Debug(nameof(GetErrorCode0Command) + " selected.");
                     return new GetErrorCode0Command(optionObject);

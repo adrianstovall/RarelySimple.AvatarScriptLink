@@ -37,24 +37,26 @@ namespace RarelySimple.AvatarScriptLink.Helpers
             {
                 if (optionObject.Forms[i].CurrentRow != null)
                 {
-                    for (int j = 0; j < optionObject.Forms[i].CurrentRow.Fields.Count; j++)
-                    {
-                        if (!excludedFields.Contains(optionObject.Forms[i].CurrentRow.Fields[j].FieldNumber))
-                            optionObject.Forms[i].CurrentRow.Fields[j].SetAsDisabled();
-                    }
-                    optionObject.Forms[i].CurrentRow.RowAction = RowAction.Edit;
+                    DisableFieldObjectsInRowObject(optionObject.Forms[i].CurrentRow, excludedFields);
                 }
                 for (int k = 0; k < optionObject.Forms[i].OtherRows.Count; k++)
                 {
-                    for (int l = 0; l < optionObject.Forms[i].OtherRows[k].Fields.Count; l++)
-                    {
-                        if (!excludedFields.Contains(optionObject.Forms[i].OtherRows[k].Fields[l].FieldNumber))
-                            optionObject.Forms[i].OtherRows[k].Fields[l].SetAsDisabled();
-                    }
-                    optionObject.Forms[i].OtherRows[k].RowAction = RowAction.Edit;
+                    DisableFieldObjectsInRowObject(optionObject.Forms[i].OtherRows[k], excludedFields);
                 }
             }
             return optionObject;
+        }
+
+        private static void DisableFieldObjectsInRowObject(RowObject rowObject, List<string> excludedFields)
+        {
+            for (int j = 0; j < rowObject.Fields.Count; j++)
+            {
+                if (!excludedFields.Contains(rowObject.Fields[j].FieldNumber))
+                {
+                    rowObject.Fields[j].SetAsDisabled();
+                }
+            }
+            rowObject.RowAction = RowAction.Edit;
         }
     }
 }

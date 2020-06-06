@@ -31,6 +31,9 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v6.Shared
             logger.Debug("Script '" + parameter.ScriptName + "' requested.");
             switch (parameter.ScriptName)
             {
+                case "DisableAllFields":
+                    logger.Debug(nameof(DisableAllFieldsCommand) + " selected.");
+                    return new DisableAllFieldsCommand(optionObjectDecorator);
                 case "GetErrorCode0":
                     logger.Debug(nameof(GetErrorCode0Command) + " selected.");
                     return new GetErrorCode0Command(optionObjectDecorator);

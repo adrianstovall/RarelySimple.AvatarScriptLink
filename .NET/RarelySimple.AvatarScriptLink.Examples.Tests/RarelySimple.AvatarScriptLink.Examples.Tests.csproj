@@ -111,6 +111,7 @@
     <Compile Include="v6\GetFieldValueTests.cs" />
     <Compile Include="v6\GetVersionCommandTests.cs" />
     <Compile Include="v6\SetFieldValueTests.cs" />
+    <Compile Include="v6\DisableAllFieldsCommandTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

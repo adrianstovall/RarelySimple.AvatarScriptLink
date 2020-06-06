@@ -34,6 +34,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             FieldValue = "";
             Lock = "0";
             Required = "0";
+            _modified = false;
         }
         /// <summary>
         /// Creates a <see cref="FieldObject"/> with the specified <see cref="FieldNumber"/> and <see cref="FieldValue"/>.
@@ -49,6 +50,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             FieldValue = fieldValue;
             Lock = "0";
             Required = "0";
+            _modified = false;
         }
         /// <summary>
         /// Creates a <see cref="FieldObject"/> with the specified <see cref="FieldNumber"/> and <see cref="FieldValue"/>.
@@ -67,6 +69,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             FieldValue = fieldValue;
             Lock = locked ? "1" : "0";
             Required = required ? "1" : "0";
+            _modified = false;
         }
         #endregion
 
@@ -103,8 +106,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             {
                 if (OriginalEnabled == null)
                     OriginalEnabled = value;
-                else
-                    _modified = true;
+                _modified = true;
                 _enabled = value;
             }
         }
@@ -160,8 +162,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             {
                 if (OriginalLocked == null)
                     OriginalLocked = value;
-                else
-                    _modified = true;
+                _modified = true;
                 _locked = value;
             }
         }
@@ -179,8 +180,7 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
             {
                 if (OriginalRequired == null)
                     OriginalRequired = value;
-                else
-                    _modified = true;
+                _modified = true;
                 _required = value;
             }
         }

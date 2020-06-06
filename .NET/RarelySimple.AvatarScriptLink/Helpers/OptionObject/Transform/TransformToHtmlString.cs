@@ -32,7 +32,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(optionObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(optionObject.GetType().ToString());
+            html += GetPageHeader(optionObject.GetType().Name);
             html += "<h2>Forms</h2>";
             foreach (FormObject formObject in optionObject.Forms)
             {
@@ -89,7 +89,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(optionObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(optionObject.GetType().ToString());
+            html += GetPageHeader(optionObject.GetType().Name);
             html += "<h2>Forms</h2>";
             foreach (FormObject formObject in optionObject.Forms)
             {
@@ -146,7 +146,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(optionObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(optionObject.GetType().ToString());
+            html += GetPageHeader(optionObject.GetType().Name);
             html += "<h2>Forms</h2>";
             foreach (FormObject formObject in optionObject.Forms)
             {
@@ -203,7 +203,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(formObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(formObject.GetType().ToString());
+            html += GetPageHeader(formObject.GetType().Name);
             html += GetHtmlForObject(formObject, HtmlOutputType.Table);
             html += "<h2>CurrentRow</h2>";
             html += GetHtmlForObject(formObject.CurrentRow, HtmlOutputType.Table);
@@ -258,7 +258,7 @@ namespace RarelySimple.AvatarScriptLink.Helpers
                 throw new ArgumentNullException(nameof(rowObject), ScriptLinkHelpers.GetLocalizedString("parameterCannotBeNull", CultureInfo.CurrentCulture));
             string html = "";
             html += includeHtmlHeaders ? GetHtmlHeader() : "";
-            html += GetPageHeader(rowObject.GetType().ToString());
+            html += GetPageHeader(rowObject.GetType().Name);
             html += GetHtmlForObject(rowObject, HtmlOutputType.Table);
             if (rowObject.Fields != null)
             {
@@ -338,23 +338,26 @@ namespace RarelySimple.AvatarScriptLink.Helpers
 
             foreach (PropertyInfo property in properties)
             {
-                switch (htmlOutputType)
+                if (property.PropertyType.IsPrimitive || property.PropertyType == typeof(string))
                 {
-                    case HtmlOutputType.TableHeaders:
-                        html += "<th>" + property.Name + "</th>";
-                        break;
-                    case HtmlOutputType.TableRow:
-                        html += "<td>" + property.GetValue(rawObject).ToString() + "</td>";
-                        break;
-                    case HtmlOutputType.Table:
-                        html += "<td>" + property.Name + "</td><td>" + property.GetValue(rawObject) + "</td>";
-                        break;
-                    case HtmlOutputType.OrderedList:
-                    case HtmlOutputType.UnorderedList:
-                        html += "<li>" + property.Name + "</td><td>" + property.GetValue(rawObject) + "</li>";
-                        break;
-                    default:
-                        break;
+                    switch (htmlOutputType)
+                    {
+                        case HtmlOutputType.TableHeaders:
+                            html += "<th>" + property.Name + "</th>";
+                            break;
+                        case HtmlOutputType.TableRow:
+                            html += "<td>" + property.GetValue(rawObject).ToString() + "</td>";
+                            break;
+                        case HtmlOutputType.Table:
+                            html += "<td>" + property.Name + "</td><td>" + property.GetValue(rawObject) + "</td>";
+                            break;
+                        case HtmlOutputType.OrderedList:
+                        case HtmlOutputType.UnorderedList:
+                            html += "<li>" + property.Name + "</td><td>" + property.GetValue(rawObject) + "</li>";
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
 

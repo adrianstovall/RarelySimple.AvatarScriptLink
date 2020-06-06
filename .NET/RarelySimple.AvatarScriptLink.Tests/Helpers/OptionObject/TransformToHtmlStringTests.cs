@@ -17,7 +17,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject</h1><h2>Forms</h2>";
 
             string actual = optionObject.ToHtmlString();
 
@@ -32,7 +32,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject</h1><h2>Forms</h2>";
 
             var actual = optionObject.ToHtmlString();
 
@@ -89,7 +89,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject</h1><h2>Forms</h2>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject)optionObject);
 
@@ -104,7 +104,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject</h1><h2>Forms</h2>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject)optionObject);
 
@@ -162,7 +162,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2</h1><h2>Forms</h2>";
 
             string actual = optionObject.ToHtmlString();
 
@@ -177,7 +177,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2</h1><h2>Forms</h2>";
 
             var actual = optionObject.ToHtmlString();
 
@@ -234,7 +234,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2</h1><h2>Forms</h2>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject2)optionObject);
 
@@ -249,7 +249,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2</h1><h2>Forms</h2>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject2)optionObject);
 
@@ -308,7 +308,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2015</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2015</h1><h2>Forms</h2>";
 
             string actual = optionObject.ToHtmlString();
 
@@ -323,7 +323,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2015</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2015</h1><h2>Forms</h2>";
 
             var actual = optionObject.ToHtmlString();
 
@@ -380,7 +380,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2015</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2015</h1><h2>Forms</h2>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject2015)optionObject);
 
@@ -395,7 +395,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 EntityID = "1",
                 SystemCode = "UAT"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.OptionObject2015</h1><h2>Forms</h2>";
+            string expected = "<h1>OptionObject2015</h1><h2>Forms</h2>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString((IOptionObject2015)optionObject);
 
@@ -447,6 +447,21 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
 
 
         [TestMethod]
+        public void TransformToHtmlString_FormObject_AreEqual()
+        {
+            FormObject formObject = new FormObject()
+            {
+                FormId = "1",
+                MultipleIteration = false
+            };
+            string expected = "<h1>FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>FormId</td><td>1</td><td>MultipleIteration</td><td>False</td></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
+
+            string actual = formObject.ToHtmlString();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void TransformToHtmlString_FormObject_IsString()
         {
             FormObject formObject = new FormObject()
@@ -454,11 +469,10 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FormId = "1",
                 MultipleIteration = false
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
+            string expected = "<h1>FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>FormId</td><td>1</td><td>MultipleIteration</td><td>False</td></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
 
             string actual = formObject.ToHtmlString();
 
-            Assert.AreEqual(expected, actual);
             Assert.AreEqual(expected.GetType(), actual.GetType());
         }
 
@@ -512,7 +526,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FormId = "1",
                 MultipleIteration = false
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
+            string expected = "<h1>FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>FormId</td><td>1</td><td>MultipleIteration</td><td>False</td></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString(formObject);
 
@@ -527,7 +541,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FormId = "1",
                 MultipleIteration = false
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
+            string expected = "<h1>FormObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>CurrentRow</h2><h2>OtherRows</h2>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString(formObject);
 
@@ -585,7 +599,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
             {
                 RowId = "1"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>Fields</h2><table></table>";
+            string expected = "<h1>RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>ParentRowId</td><td></td><td>RowAction</td><td></td><td>RowId</td><td>1</td></tbody></table><h2>Fields</h2><table></table>";
 
             string actual = rowObject.ToHtmlString();
 
@@ -599,7 +613,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
             {
                 RowId = "1"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>Fields</h2><table></table>";
+            string expected = "<h1>RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>ParentRowId</td><td></td><td>RowAction</td><td></td><td>RowId</td><td>1</td></tbody></table><h2>Fields</h2><table></table>";
 
             var actual = rowObject.ToHtmlString();
 
@@ -652,7 +666,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
             {
                 RowId = "1"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>Fields</h2><table></table>";
+            string expected = "<h1>RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>ParentRowId</td><td></td><td>RowAction</td><td></td><td>RowId</td><td>1</td></tbody></table><h2>Fields</h2><table></table>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString(rowObject);
 
@@ -666,7 +680,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
             {
                 RowId = "1"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table><h2>Fields</h2><table></table>";
+            string expected = "<h1>RowObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>ParentRowId</td><td></td><td>RowAction</td><td></td><td>RowId</td><td>1</td></tbody></table><h2>Fields</h2><table></table>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString(rowObject);
 
@@ -722,7 +736,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FieldNumber = "1",
                 FieldValue = "TEST"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table>";
+            string expected = "<h1>FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>Enabled</td><td></td><td>FieldNumber</td><td>1</td><td>FieldValue</td><td>TEST</td><td>Lock</td><td></td><td>Required</td><td></td><td>Modified</td><td>False</td></tbody></table>";
 
             string actual = fieldObject.ToHtmlString();
 
@@ -794,7 +808,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FieldNumber = "1",
                 FieldValue = "TEST"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table>";
+            string expected = "<h1>FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody><td>Enabled</td><td></td><td>FieldNumber</td><td>1</td><td>FieldValue</td><td>TEST</td><td>Lock</td><td></td><td>Required</td><td></td><td>Modified</td><td>False</td></tbody></table>";
 
             string actual = OptionObjectHelpers.TransformToHtmlString(fieldObject);
 
@@ -809,7 +823,7 @@ namespace RarelySimple.AvatarScriptLink.Tests.HelpersTests
                 FieldNumber = "1",
                 FieldValue = "TEST"
             };
-            string expected = "<h1>RarelySimple.AvatarScriptLink.Objects.FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table>";
+            string expected = "<h1>FieldObject</h1><table><thead><tr><th>Property</th><th>Value</th></tr></thead><tbody></tbody></table>";
 
             var actual = OptionObjectHelpers.TransformToHtmlString(fieldObject);
 

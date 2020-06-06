@@ -29,6 +29,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
         setFieldValue("");
         setLock("");
         setRequired("");
+        setModified(false);
     }
 
     protected FieldObjectBase(String fieldNumber) {
@@ -39,6 +40,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
         setFieldValue("");
         setLock("0");
         setRequired("0");
+        setModified(false);
     }
 
     protected FieldObjectBase(String fieldNumber, String fieldValue) {
@@ -49,6 +51,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
         setFieldValue(fieldValue);
         setLock("0");
         setRequired("0");
+        setModified(false);
     }
 
     protected FieldObjectBase(String fieldNumber, String fieldValue, Boolean enabled, Boolean locked, Boolean required) {
@@ -59,6 +62,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
         setFieldValue(fieldValue);
         setLock(locked ? "1" : "0");
         setRequired(required ? "1" : "0");
+        setModified(false);
     }
 
     public boolean equals(Object o) {
@@ -98,8 +102,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
     public void setEnabled(String value) {
         if (originalEnabled == null) 
             originalEnabled = value;
-        else
-            modified = true;
+        modified = true;
         Enabled = value;
     }
 
@@ -146,8 +149,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
     public void setLock(String value) {
         if (originalLock == null) 
             originalLock = value;
-        else
-            modified = true;
+        modified = true;
         Lock = value;
     }
 
@@ -155,8 +157,16 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
         return modified;
     }
 
+    public void setModified(boolean value) {
+        modified = value;
+    }
+
     public void setAsModified() {
         modified = true;
+    }
+
+    public void setAsUnmodified() {
+        modified = false;
     }
 
     public String getRequired() {
@@ -180,8 +190,7 @@ public abstract class FieldObjectBase implements IFieldObject, Cloneable, Serial
     public void setRequired(String value) {
         if (originalRequired == null) 
             originalRequired = value;
-        else
-            modified = true;
+        modified = true;
         Required = value;
     }
 

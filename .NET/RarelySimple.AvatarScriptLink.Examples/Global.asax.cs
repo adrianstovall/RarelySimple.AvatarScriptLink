@@ -18,6 +18,7 @@ namespace RarelySimple.AvatarScriptLink.Examples
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            NLogConfiguration.RegisterLogs();
         }
     }
 }

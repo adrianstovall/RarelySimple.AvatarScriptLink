@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>3.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,6 +35,19 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <TypeScriptTarget>ESNext</TypeScriptTarget>
+    <TypeScriptJSXEmit>React</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -391,6 +404,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Soap\v2\Shared\DefaultScript.cs" />
+    <Compile Include="Soap\v2\Shared\DisableAllFields.cs" />
     <Compile Include="Soap\v2\Shared\GetErrorCode0.cs" />
     <Compile Include="Soap\v2\Shared\GetErrorCode1.cs" />
     <Compile Include="Soap\v2\Shared\GetErrorCode2.cs" />
@@ -427,6 +441,7 @@
     <Compile Include="Soap\v3\Shared\GetErrorCode4.cs" />
     <Compile Include="Soap\v3\Shared\GetErrorCode5.cs" />
     <Compile Include="Soap\v3\Shared\GetErrorCode6.cs" />
+    <Compile Include="Soap\v3\Shared\DisableAllFields.cs" />
     <Compile Include="Soap\v3\Shared\GetFieldValue.cs" />
     <Compile Include="Soap\v3\Shared\SetFieldValue.cs" />
     <Compile Include="Soap\v4\Default.aspx.cs">
@@ -449,6 +464,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Soap\v4\Shared\DefaultScript.cs" />
+    <Compile Include="Soap\v4\Shared\DisableAllFields.cs" />
     <Compile Include="Soap\v4\Shared\GetErrorCode0.cs" />
     <Compile Include="Soap\v4\Shared\GetErrorCode1.cs" />
     <Compile Include="Soap\v4\Shared\GetErrorCode2.cs" />
@@ -479,6 +495,7 @@
     </Compile>
     <Compile Include="Soap\v5\Shared\CommandFactory.cs" />
     <Compile Include="Soap\v5\Shared\DefaultScriptCommand.cs" />
+    <Compile Include="Soap\v5\Shared\DisableAllFieldsCommand.cs" />
     <Compile Include="Soap\v5\Shared\GetErrorCode0Command.cs" />
     <Compile Include="Soap\v5\Shared\GetErrorCode1Command.cs" />
     <Compile Include="Soap\v5\Shared\GetErrorCode2Command.cs" />
@@ -512,6 +529,7 @@
     </Compile>
     <Compile Include="Soap\v6\Shared\CommandFactory.cs" />
     <Compile Include="Soap\v6\Shared\DefaultScriptCommand.cs" />
+    <Compile Include="Soap\v6\Shared\DisableAllFieldsCommand.cs" />
     <Compile Include="Soap\v6\Shared\GetErrorCode0Command.cs" />
     <Compile Include="Soap\v6\Shared\GetErrorCode1Command.cs" />
     <Compile Include="Soap\v6\Shared\GetErrorCode2Command.cs" />

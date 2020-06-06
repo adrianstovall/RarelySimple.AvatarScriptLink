@@ -10,7 +10,7 @@ namespace RarelySimple.AvatarScriptLink.Examples.Tests.v6
     public class GetFieldValueTests
     {
         [TestMethod]
-        public void RunScript_GetFieldValue_OptionObject_ReturnsErrorCode0()
+        public void RunScript_GetFieldValue_OptionObject_ReturnsErrorCode3()
         {
             // Arrange
             FieldObject fieldObject = new FieldObject()
@@ -51,7 +51,7 @@ namespace RarelySimple.AvatarScriptLink.Examples.Tests.v6
         }
 
         [TestMethod]
-        public void RunScript_GetFieldValue_OptionObject2_ReturnsErrorCode0()
+        public void RunScript_GetFieldValue_OptionObject2_ReturnsErrorCode3()
         {
             // Arrange
             FieldObject fieldObject = new FieldObject()
@@ -92,7 +92,7 @@ namespace RarelySimple.AvatarScriptLink.Examples.Tests.v6
         }
 
         [TestMethod]
-        public void RunScript_GetFieldValue_OptionObject2015_ReturnsErrorCode0()
+        public void RunScript_GetFieldValue_OptionObject2015_ReturnsErrorCode3()
         {
             // Arrange
             FieldObject fieldObject = new FieldObject()

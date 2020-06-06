@@ -30,6 +30,10 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v4
 
             switch (scriptName)
             {
+                case "DisableAllFields":
+                    returnOptionObject = DisableAllFields.RunScript(optionObject);
+                    logger.Debug("Script '" + scriptName + "' returned.");
+                    break;
                 case "GetErrorCode0":
                     returnOptionObject = GetErrorCode0.RunScript(optionObject);
                     logger.Debug("Script '" + scriptName + "' returned.");

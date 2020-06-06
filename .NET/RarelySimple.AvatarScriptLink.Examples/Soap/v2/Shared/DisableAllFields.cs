@@ -2,14 +2,17 @@
 
 namespace RarelySimple.AvatarScriptLink.Examples.Soap.v2.Shared
 {
-    public static class DefaultScript
+    public static class DisableAllFields
     {
-        public static OptionObject RunScript(OptionObject optionObject, string scriptName)
+        public static OptionObject RunScript(OptionObject optionObject)
         {
             OptionObject returnOptionObject = new OptionObject();
 
+            // TODO: Re-write for v2 sample
+            optionObject.DisableAllFieldObjects();
+
             returnOptionObject.ErrorCode = 3;
-            returnOptionObject.ErrorMesg = "No script was found with the name '" + scriptName + "'.";
+            returnOptionObject.ErrorMesg = "All FieldObjects should now be disabled (with a few exceptions).";
 
             returnOptionObject.EntityID = optionObject.EntityID;
             returnOptionObject.EpisodeNumber = optionObject.EpisodeNumber;
@@ -26,12 +29,15 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v2.Shared
             return returnOptionObject;
         }
 
-        public static OptionObject2 RunScript(OptionObject2 optionObject, string scriptName)
+        public static OptionObject2 RunScript(OptionObject2 optionObject)
         {
             OptionObject2 returnOptionObject = new OptionObject2();
 
+            // TODO: Re-write for v2 sample
+            optionObject.DisableAllFieldObjects();
+
             returnOptionObject.ErrorCode = 3;
-            returnOptionObject.ErrorMesg = "No script was found with the name '" + scriptName + "'.";
+            returnOptionObject.ErrorMesg = "All FieldObjects should now be disabled (with a few exceptions).";
 
             returnOptionObject.EntityID = optionObject.EntityID;
             returnOptionObject.EpisodeNumber = optionObject.EpisodeNumber;
@@ -48,12 +54,15 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v2.Shared
             return returnOptionObject;
         }
 
-        public static OptionObject2015 RunScript(OptionObject2015 optionObject, string scriptName)
+        public static OptionObject2015 RunScript(OptionObject2015 optionObject)
         {
             OptionObject2015 returnOptionObject = new OptionObject2015();
 
+            // TODO: Re-write for v2 sample
+            optionObject.DisableAllFieldObjects();
+
             returnOptionObject.ErrorCode = 3;
-            returnOptionObject.ErrorMesg = "No script was found with the name '" + scriptName + "'.";
+            returnOptionObject.ErrorMesg = "All FieldObjects should now be disabled (with a few exceptions).";
 
             returnOptionObject.EntityID = optionObject.EntityID;
             returnOptionObject.EpisodeNumber = optionObject.EpisodeNumber;

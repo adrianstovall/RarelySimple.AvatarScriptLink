@@ -27,6 +27,7 @@ namespace RarelySimple.AvatarScriptLink.Examples
 #endif
 
             // Set Logging Targets
+            DebuggerTarget debugger = new DebuggerTarget("apiSoapDebugger");
             FileTarget apiLogfile = new FileTarget("apiSoaplogfile")
             {
                 Name = "Api.Commands",
@@ -41,6 +42,7 @@ namespace RarelySimple.AvatarScriptLink.Examples
             };
 
             // Set Rules for mapping loggers to targets            
+            config.AddRule(minLogLevel, LogLevel.Fatal, debugger, "*");       // Logs from .asmx files
             config.AddRule(minLogLevel, LogLevel.Fatal, apiLogfile, "RarelySimple.AvatarScriptLink.Examples.Soap.*");       // Logs from .asmx files
 
             // Apply config           

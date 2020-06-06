@@ -30,6 +30,10 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v1
 
             switch (scriptName)
             {
+                case "DisableAllFields":
+                    returnOptionObject = DisableAllFields(optionObject);
+                    logger.Debug("Script '" + scriptName + "' returned.");
+                    break;
                 case "GetErrorCode0":
                     returnOptionObject = GetErrorCode0(optionObject);
                     logger.Debug("Script '" + scriptName + "' returned.");
@@ -84,6 +88,31 @@ namespace RarelySimple.AvatarScriptLink.Examples.Soap.v1
                     //returnOptionObject.SessionToken = optionObject.SessionToken;  // NOTE: This property will compile will be removed when serialized. 
                     break;
             }
+
+            return returnOptionObject;
+        }
+
+        private OptionObject2 DisableAllFields(OptionObject2 optionObject)
+        {
+            OptionObject2 returnOptionObject = new OptionObject2();
+
+            // TODO: Re-write for v1 sample
+            optionObject.DisableAllFieldObjects();
+
+            returnOptionObject.ErrorCode = 3;
+            returnOptionObject.ErrorMesg = "All FieldObjects should now be disabled (with a few exceptions).";
+
+            returnOptionObject.EntityID = optionObject.EntityID;
+            returnOptionObject.EpisodeNumber = optionObject.EpisodeNumber;
+            returnOptionObject.Facility = optionObject.Facility;
+            returnOptionObject.NamespaceName = optionObject.NamespaceName;
+            returnOptionObject.OptionId = optionObject.OptionId;
+            returnOptionObject.OptionStaffId = optionObject.OptionStaffId;
+            returnOptionObject.OptionUserId = optionObject.OptionUserId;
+            returnOptionObject.ParentNamespace = optionObject.ParentNamespace;
+            returnOptionObject.ServerName = optionObject.ServerName;
+            returnOptionObject.SystemCode = optionObject.SystemCode;
+            //returnOptionObject.SessionToken = optionObject.SessionToken;    // NOTE: This property will compile but will be removed when serialized.
 
             return returnOptionObject;
         }
