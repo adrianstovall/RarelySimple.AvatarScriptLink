@@ -306,6 +306,8 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
         {
             Enabled = "0";
             Required = "0";
+            if (string.IsNullOrEmpty(Lock))
+                Lock = "0";
         }
 
         /// <summary>
@@ -336,6 +338,8 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
         {
             Enabled = "1";
             Required = "0";
+            if (string.IsNullOrEmpty(Lock))
+                Lock = "0";
         }
 
         /// <summary>
@@ -345,6 +349,8 @@ namespace RarelySimple.AvatarScriptLink.Objects.Advanced
         {
             Enabled = "1";
             Required = "1";
+            if (string.IsNullOrEmpty(Lock))
+                Lock = "0";
         }
 
         /// <summary>
